@@ -1,0 +1,41 @@
+[project]
+name = "inpa-bot"
+version = "0.1.0"
+description = "Monitoraggio inPA con sincronizzazione persistente e bot Telegram privato (M0-M2)."
+requires-python = ">=3.11"
+# Il livello `source` e' volutamente senza dipendenze di terze parti:
+# rende i test offline banali e riduce la superficie di supply chain.
+# Unica eccezione: `tzdata`, pacchetto di soli dati. Su Windows `zoneinfo`
+# non trova "Europe/Rome" senza di esso, e la specifica (4.1) richiede una
+# gestione corretta dell'ora legale identica su ogni macchina.
+dependencies = ["tzdata>=2024.1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.11"]
+telegram = ["python-telegram-bot>=22.8,<23", "python-dotenv>=1.0,<2"]
+
+[project.scripts]
+inpa-bot = "inpa_bot.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Rende i test eseguibili senza installare il pacchetto: utile in CI e a chi
+# clona il repository solo per verificare gli esiti dichiarati nei rapporti.
+pythonpath = ["src"]
+markers = [
+  "integration: test che effettuano richieste di rete reali (opt-in via INPA_INTEGRATION=1)",
+]
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.ruff.lint]
+# Stable correctness checks across Ruff releases; formatting is checked separately.
+select = ["E4", "E7", "E9", "F"]

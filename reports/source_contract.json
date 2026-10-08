@@ -1,0 +1,296 @@
+{
+  "$comment": "Contratto OSSERVATO il 2026-09-19, non ipotizzato. Ogni campo riporta su quante pagine del campione e' comparso. Un campo assente da questo file non e' 'inesistente': e' 'non osservato'. Rigenerabile con scripts/probe_inpa.py.",
+  "observed_at": "2026-09-19T18:20:00Z",
+  "observer": "InpaTelegramBot-Probe/0.1",
+  "sample": {
+    "detail_pages": 28,
+    "selection": "26 id campionati a passo regolare dalla sitemap + 2 id chiusi citati nella specifica",
+    "caveat": "Le 26 dalla sitemap sono risultate tutte 'Aperto'. Le 2 della specifica sono chiuse e NON compaiono in sitemap."
+  },
+  "routes": {
+    "discovery": {
+      "url": "https://www.inpa.gov.it/sitemap.xml",
+      "method": "GET",
+      "robots": "consentito; dichiarato dallo stesso robots.txt",
+      "returns": "sitemapindex con 3 <sitemap>: sitemap-pages.xml, sitemap-posts.xml, sitemap-bandi.xml"
+    },
+    "listing": {
+      "url": "https://www.inpa.gov.it/sitemap-bandi.xml",
+      "method": "GET",
+      "robots": "consentito",
+      "entries_observed": 1680,
+      "entry_fields": [
+        "loc",
+        "lastmod",
+        "changefreq",
+        "priority"
+      ],
+      "loc_host": "inpa.gov.it (senza www) - va riscritto su www.inpa.gov.it per evitare un redirect",
+      "lastmod_format": "ISO 8601 UTC, es. 2026-09-18T21:59:00Z",
+      "coverage": "bandi APERTI. 1680 voci contro 1674 'Aperto' e 73542 'Chiuso' dichiarati dalla ricerca pubblica: i chiusi non compaiono. Scarto di 6 non spiegato (45 minuti fra le due misure e/o latenza di rigenerazione).",
+      "id_extraction": "query string concorso_id=<32 hex>"
+    },
+    "detail": {
+      "url": "https://www.inpa.gov.it/bandi-e-avvisi/dettaglio-bando-avviso/?concorso_id={id}",
+      "method": "GET",
+      "robots": "consentito",
+      "rendering": "HTML server-side; i valori sono nell'HTML grezzo",
+      "content_type": "text/html; charset=UTF-8",
+      "size_range_bytes": [
+        79815,
+        115302
+      ]
+    },
+    "attachments": {
+      "url_pattern": "https://portale.inpa.gov.it/api/media/<uuid>",
+      "robots": "VIETATO: portale.inpa.gov.it serve 'User-agent: * / Disallow: /'",
+      "status": "non utilizzabile in automatico; vedi reports/access_conditions.md",
+      "observed_count": 40,
+      "hosts": {
+        "https://portale.inpa.gov.it": 40
+      }
+    },
+    "not_used": {
+      "search_api": {
+        "url": "https://portale.inpa.gov.it/concorsi-smart/api/concorso-public-area/search-better",
+        "note": "Endpoint reale: usato dal JS ufficiale di inPA (dro-cerca-bandi.js). NON collaudato da questo progetto perche' l'host lo vieta via robots.txt. La sua validita' tecnica resta ignota per scelta.",
+        "body_schema_from_official_js": [
+          "text",
+          "categoriaId",
+          "regioneId",
+          "status",
+          "settoreId",
+          "provinciaCodice",
+          "dateFrom",
+          "dateTo",
+          "livelliAnzianitaIds",
+          "tipoImpiegoId",
+          "salaryMin",
+          "salaryMax",
+          "enteRiferimentoName"
+        ],
+        "query_params": [
+          "page",
+          "size"
+        ],
+        "response_fields_from_official_js": [
+          "content",
+          "totalElements",
+          "totalPages",
+          "pageable.pageNumber"
+        ],
+        "region_vocabulary_observed": {
+          "$comment": "Valori di regioneId letti dal menu della ricerca pubblica il 19/09/2026. Registrati per documentazione: il progetto NON li usa, perche' userebbero l'host vietato. Servono a mappare un'eventuale futura autorizzazione.",
+          "-1": "Nazionale",
+          "1": "Abruzzo",
+          "2": "Basilicata",
+          "3": "Calabria",
+          "4": "Campania",
+          "5": "Emilia Romagna",
+          "6": "Friuli Venezia Giulia",
+          "7": "Lazio",
+          "8": "Liguria",
+          "9": "Lombardia",
+          "10": "Marche",
+          "11": "Molise",
+          "12": "Piemonte",
+          "13": "Puglia",
+          "14": "Sardegna",
+          "15": "Sicilia",
+          "16": "Toscana",
+          "17": "Trentino Alto Adige",
+          "18": "Umbria",
+          "19": "Valle d'Aosta",
+          "20": "Veneto"
+        }
+      },
+      "wp_json": {
+        "url": "https://www.inpa.gov.it/wp-json/",
+        "note": "vietato da robots.txt di www (Disallow: /wp-json/); non tentato"
+      }
+    }
+  },
+  "detail_fields": {
+    "Descrizione:": {
+      "occurrences": 28,
+      "pages": 28,
+      "optional": false,
+      "samples": []
+    },
+    "Area geografica:": {
+      "occurrences": 28,
+      "pages": 28,
+      "optional": false,
+      "samples": [
+        "Lazio, Campania, Liguria, Puglia, Sardegna, Toscana, Veneto, Trentino Alto Adige, Marche, Umbria, Emilia Romagna, Friuli",
+        "Lombardia",
+        "Toscana",
+        "Veneto"
+      ]
+    },
+    "Valutazione:": {
+      "occurrences": 28,
+      "pages": 28,
+      "optional": false,
+      "samples": [
+        "Per colloquio",
+        "Per corso-concorso",
+        "Per esami",
+        "Per titoli ed esami"
+      ]
+    },
+    "Stato:": {
+      "occurrences": 28,
+      "pages": 28,
+      "optional": false,
+      "samples": [
+        "Aperto",
+        "Chiuso"
+      ]
+    },
+    "Data apertura candidature:": {
+      "occurrences": 28,
+      "pages": 28,
+      "optional": false,
+      "samples": [
+        "03 Settembre 2026 10:50",
+        "10 Settembre 2026 12:30",
+        "23 Dicembre 2025 20:00",
+        "29 Agosto 2026 08:00"
+      ]
+    },
+    "Data chiusura candidature:": {
+      "occurrences": 28,
+      "pages": 28,
+      "optional": false,
+      "samples": [
+        "10 Ottobre 2026 23:59",
+        "27 Gennaio 2026 18:00",
+        "29 Settembre 2026 23:59",
+        "30 Settembre 2026 23:59"
+      ]
+    },
+    "Numero di posti:": {
+      "occurrences": 28,
+      "pages": 28,
+      "optional": false,
+      "samples": [
+        "1",
+        "1100",
+        "2",
+        "3"
+      ]
+    },
+    "Ente di riferimento:": {
+      "occurrences": 28,
+      "pages": 28,
+      "optional": false,
+      "samples": [
+        "Comune di Cassano d’Adda",
+        "Ministero della Difesa",
+        "Provincia di Arezzo",
+        "Villa Serena Lonigo Servizi Sociali e Sociosanitari alla Persona"
+      ]
+    },
+    "Bando/Avviso e Allegati:": {
+      "occurrences": 26,
+      "pages": 28,
+      "optional": true,
+      "samples": []
+    },
+    "Link al sito della PA:": {
+      "occurrences": 16,
+      "pages": 28,
+      "optional": true,
+      "samples": [
+        "https://provincia.arezzo.it/",
+        "https://www.comune.siena.it/",
+        "https://www.difesa.it",
+        "https://www.infn.it"
+      ]
+    },
+    "Corrispettivo minimo annuo:": {
+      "occurrences": 1,
+      "pages": 28,
+      "optional": true,
+      "samples": []
+    }
+  },
+  "value_domains": {
+    "stato": {
+      "observed": {
+        "Aperto": 26,
+        "Chiuso": 2
+      },
+      "warning": "Solo 'Aperto' e 'Chiuso' osservati. Il JS ufficiale filtra su OPEN/CLOSED. NON e' provato che siano gli unici stati: qualsiasi altro valore va mappato su UNKNOWN conservando l'originale.",
+      "counts_declared_by_source": {
+        "OPEN": 1674,
+        "CLOSED": 73542,
+        "observed_at": "2026-09-19T18:50:00Z"
+      }
+    },
+    "date_format": {
+      "pattern": "DD Mese YYYY<due spazi>HH:MM",
+      "conformi": "56/56",
+      "timezone": "non dichiarato dalla fonte; interpretato come Europe/Rome",
+      "warning": "Se un giorno comparisse una data senza orario, NON va completata con 23:59."
+    },
+    "allegati": {
+      "per_pagina": {
+        "0": 2,
+        "1": 14,
+        "2": 10,
+        "3": 2
+      },
+      "estensioni_nel_nome_file": {
+        "pdf": 36,
+        "p7m": 2,
+        "rtf": 1,
+        "docx": 1
+      },
+      "warning": "L'URL non ha estensione: il tipo va dedotto dal nome file e confermato dai byte."
+    },
+    "area_geografica": {
+      "shape": "elenco separato da ', ' che puo' contenere REGIONI, PROVINCE o il valore 'Nazionale'",
+      "observed_values": {
+        "solo regioni": "caso piu' comune (26/28 campioni: una sola regione)",
+        "molte regioni": "campione 01c11fcf...: 14 regioni",
+        "regioni + province": "osservato nella ricerca pubblica: 'Calabria, Pescara, Sud Sardegna, Barletta-Andria-Trani, ...' per 108 elementi",
+        "Nazionale": "valore a se', corrispondente a regioneId=-1"
+      },
+      "semantics_warning": "La fonte NON dichiara se il campo sia sede di lavoro, ambito del bando o sede d'esame. Bandi 'Nazionale' includono un Comune della Campania e un Ufficio Scolastico del Lazio: il campo non prova la sede lavorativa. Mappato su TerritoryScope.UNSPECIFIED.",
+      "filter_behaviour_observed": "Filtrando la ricerca pubblica per una regione qualsiasi, i bandi 'Nazionale' compaiono comunque: Molise -> 66 risultati, Valle d'Aosta -> 38, con i primi 4 identici e tutti 'Nazionale'."
+    }
+  },
+  "semantic_notes": [
+    {
+      "field": "dataPubblicazione (API) / 'Data apertura candidature' (scheda)",
+      "finding": "Il JS ufficiale dro-bandi-functions.js rende item.dataPubblicazione sotto l'etichetta 'Data apertura candidature'. Nella fonte questo campo e' la data di APERTURA delle candidature.",
+      "consequence": "La scheda non espone una data di pubblicazione distinta. Il progetto lascia published_at a None invece di riusare opening_at (SPEC 4.1).",
+      "evidence": "https://www.inpa.gov.it/wp-content/plugins/dro-dashboard/assets/js/dro-bandi-functions.js"
+    },
+    {
+      "field": "'Area geografica'",
+      "finding": "Reso da item.sedi.join(', ') nel JS ufficiale. Lista di regioni.",
+      "consequence": "La fonte non dichiara se si tratti di sede di lavoro, ambito del bando o sede d'esame. Mappato su TerritoryScope.UNSPECIFIED: non va trattato come prova della sede lavorativa (SPEC 6)."
+    },
+    {
+      "field": "'Numero di posti' su bandi multiregionali",
+      "finding": "Il campione 01c11fcf... dichiara 1100 posti su 14 regioni.",
+      "consequence": "Il totale non va attribuito a una singola provincia (SPEC 6, 9.1). La scheda pubblica non espone la ripartizione per sede: il dato per provincia resta NON DISPONIBILE, non stimato."
+    },
+    {
+      "field": "malformazione HTML",
+      "finding": "Dopo 'Data chiusura candidature' il <p> e' chiuso da </div>. Presente in tutti i campioni.",
+      "consequence": "Il parser scandisce un flusso di token e non costruisce un albero rigido."
+    }
+  ],
+  "unverified": [
+    "Comportamento dei filtri lato fonte a livello di API: non collaudabile senza usare l'host vietato.",
+    "Elenco completo degli stati possibili: l'interfaccia ne espone due (OPEN, CLOSED), ma non e' provato che siano tutti.",
+    "Frequenza di rigenerazione della sitemap e latenza fra pubblicazione di un bando e sua comparsa.",
+    "Causa dello scarto 1680 vs 1674.",
+    "Transizione di un singolo bando da presente ad assente nella sitemap alla chiusura: non osservata nel tempo.",
+    "Limiti di frequenza applicati dal gestore."
+  ]
+}

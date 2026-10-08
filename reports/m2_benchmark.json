@@ -1,0 +1,14 @@
+{
+  "dataset": "synthetic open notices, no network",
+  "records": 1789,
+  "threads": 1,
+  "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+  "os": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel64 Family 6 Model 165 Stepping 3, GenuineIntel",
+  "source_sha256": "66c0b708eef4fd62654494b1fadcbb86abe8f83e53a8cd755fdc66a8930616a7",
+  "first_page_and_outbox_seconds": 0.15438509988598526,
+  "queued_replies": 8,
+  "delivery_bookkeeping_seconds": 0.034202300012111664,
+  "disk_bytes_after_close": 2703360,
+  "limitations": "Single run, warm OS cache, no Telegram or inPA requests, no RAM measurement"
+}

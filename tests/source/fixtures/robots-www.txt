@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+Disallow: /admin-area/
+Disallow: /wp-json/
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://www.inpa.gov.it/sitemap.xml

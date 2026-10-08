@@ -1,0 +1,78 @@
+{
+  "_commento": "Vista LEGGIBILE di un NoticeSnapshot, per mostrare il contratto interno. Su disco lo snapshot e' serializzato con un involucro tipizzato che garantisce un round-trip fedele (vedi snapshot.snapshot_to_json).",
+  "notice_id": "d3d8d8d7a82e40afbd75a26841bc9070",
+  "source_url": "https://www.inpa.gov.it/bandi-e-avvisi/dettaglio-bando-avviso/?concorso_id=d3d8d8d7a82e40afbd75a26841bc9070",
+  "observed_at": "2026-09-19T18:20:00+00:00",
+  "title": "SELEZIONE PUBBLICA PER TITOLI ED ESAMI PER LA FORMAZIONE DI UNA GRADUATORIA DI IDONEI NEL PROFILO DELL’AREA DEGLI OPERATORI PER ASSUNZIONI A TEMPO DETERMINATO",
+  "description": "È indetta una selezione pubblica per la formazione di una graduatoria di istituto di aspiranti alla costituzione di rapporti di lavoro subordinato a tempo determinato nel profilo p...",
+  "status_original": "Chiuso",
+  "status_normalized": "closed",
+  "total_positions": 1,
+  "enti": [
+    "Conservatorio Musica Vibo Valentia"
+  ],
+  "procedure_type": "Per titoli ed esami",
+  "pa_link": "https://consvv.it/",
+  "opening_at": {
+    "raw": "06 Agosto 2026 14:00",
+    "date_only": "2026-08-06",
+    "instant": "2026-08-06T14:00:00+02:00",
+    "tz_assumption": "Europe/Rome",
+    "certainty": "observed"
+  },
+  "closing_at": {
+    "raw": "05 Settembre 2026 23:59",
+    "date_only": "2026-09-05",
+    "instant": "2026-09-05T23:59:00+02:00",
+    "tz_assumption": "Europe/Rome",
+    "certainty": "observed"
+  },
+  "published_at": null,
+  "_nota_published_at": "None di proposito: la scheda non espone una data di pubblicazione distinta, e riusare l'apertura sarebbe la confusione vietata da SPEC 4.1.",
+  "territories": [
+    {
+      "raw": "Calabria",
+      "scope": "unspecified",
+      "region_code": "IT-78",
+      "region_name": "Calabria",
+      "province_code": null,
+      "national": false,
+      "certainty": "derived"
+    }
+  ],
+  "attachments": [
+    {
+      "url": "https://portale.inpa.gov.it/api/media/83f5fa66-9038-4e7d-b09f-11e86f3956be",
+      "filename": "Bando operatore TD Vibo Valentia_signed.pdf",
+      "declared_extension": "pdf",
+      "published": {
+        "raw": "06 Agosto 2026  14:00",
+        "date_only": "2026-08-06",
+        "instant": "2026-08-06T14:00:00+02:00",
+        "tz_assumption": "Europe/Rome",
+        "certainty": "observed"
+      },
+      "fetch_permitted": false,
+      "fetch_block_reason": "permesso non valutato"
+    },
+    {
+      "url": "https://portale.inpa.gov.it/api/media/99515f2b-cd1e-438a-b997-76056f0a5609",
+      "filename": "Allegato A bando Operatore_.docx",
+      "declared_extension": "docx",
+      "published": {
+        "raw": "19 Agosto 2026  12:53",
+        "date_only": "2026-08-19",
+        "instant": "2026-08-19T12:53:00+02:00",
+        "tz_assumption": "Europe/Rome",
+        "certainty": "observed"
+      },
+      "fetch_permitted": false,
+      "fetch_block_reason": "permesso non valutato"
+    }
+  ],
+  "extra_fields": {},
+  "metadata_hash": "c9a5179513feb0243e1812d50930af2244bf9480234d5fee2cd33b71e373948d",
+  "raw_document_hash": "fa2f6146566ca5e0982c0941395a54dc3a73f783d3ae0e393802e086e3e91d7d",
+  "_nota_hash": "Due hash distinti: la pagina cambia byte a ogni richiesta (un token e un id DOM rigenerati), quindi solo metadata_hash puo' segnalare un vero aggiornamento.",
+  "anomalies": []
+}

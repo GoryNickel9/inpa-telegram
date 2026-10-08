@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily inPA SQLite backup (UTC)
+
+[Timer]
+OnCalendar=*-*-* 03:15:00 UTC
+RandomizedDelaySec=10m
+Persistent=true
+Unit=inpa-backup.service
+
+[Install]
+WantedBy=timers.target

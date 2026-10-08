@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Prime 4 voci di https://www.inpa.gov.it/sitemap-bandi.xml (1680 il 2026-09-19).
+     Nota: <loc> usa l'host senza www, le schede si servono su www.inpa.gov.it. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://inpa.gov.it/bandi-e-avvisi/dettaglio-bando-avviso/?concorso_id=df4a037fb81c4a9d94e5dfac92dedf4e</loc>
+		<lastmod>2026-09-18T21:59:00Z</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://inpa.gov.it/bandi-e-avvisi/dettaglio-bando-avviso/?concorso_id=07bd3da8a1664e6f92325541b0cc92e5</loc>
+		<lastmod>2026-09-18T21:59:00Z</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://inpa.gov.it/bandi-e-avvisi/dettaglio-bando-avviso/?concorso_id=4fb52c2d29fc48139c8dd0a16fd96971</loc>
+		<lastmod>2026-09-18T21:59:00Z</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://inpa.gov.it/bandi-e-avvisi/dettaglio-bando-avviso/?concorso_id=c74b1faf959649589dd32861085f3593</loc>
+		<lastmod>2026-09-18T21:59:00Z</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+	</url>
+</urlset>

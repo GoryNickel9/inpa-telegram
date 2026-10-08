@@ -1,0 +1,17 @@
+[Unit]
+Description=Verified SQLite backup for inPA
+
+[Service]
+Type=oneshot
+User=inpa-bot
+Group=inpa-bot
+WorkingDirectory=/opt/inpa-telegram
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/inpa-telegram/.venv/bin/python scripts/backup_sqlite.py /var/lib/inpa-bot/inpa.sqlite3 /var/lib/inpa-bot/backups --keep 7
+TimeoutStartSec=300s
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/inpa-bot

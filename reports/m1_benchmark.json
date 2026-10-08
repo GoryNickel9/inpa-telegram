@@ -1,0 +1,19 @@
+{
+  "dataset": "synthetic, 1024 description bytes per notice; no network",
+  "records": 1000,
+  "threads": 1,
+  "seed": null,
+  "sqlite": "3.45.3",
+  "os": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel64 Family 6 Model 165 Stepping 3, GenuineIntel",
+  "logical_cpus": 8,
+  "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+  "commit": "234d51d106c29f7ef79aa1c53f61d15c83eabc0b",
+  "source_sha256": "0dcbd68e602e57349a6c84c8967b2b4a339062909d2527255320aeb78a29554f",
+  "initial_seconds": 1.0927585000172257,
+  "unchanged_seconds": 0.04468679986894131,
+  "reopen_status_seconds": 0.010608899872750044,
+  "disk_bytes_after_close": 2854913,
+  "total_seconds": 1.637980500003323,
+  "limitations": "Single run, warm OS cache, no network latency; no RAM measurement"
+}

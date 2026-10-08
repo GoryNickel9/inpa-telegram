@@ -1,0 +1,26 @@
+[Unit]
+Description=inPA private Telegram bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=inpa-bot
+Group=inpa-bot
+WorkingDirectory=/opt/inpa-telegram
+EnvironmentFile=/etc/inpa-bot.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/inpa-telegram/.venv/bin/python -m inpa_bot --db /var/lib/inpa-bot/inpa.sqlite3 telegram run
+Restart=on-failure
+RestartSec=15s
+TimeoutStopSec=90s
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/inpa-bot
+
+[Install]
+WantedBy=multi-user.target
